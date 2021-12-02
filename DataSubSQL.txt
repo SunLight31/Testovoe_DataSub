@@ -1,0 +1,17 @@
+а)
+SELECT FirstName, LastName
+FROM STUDENTS JOIN EXAMS
+ON STUDENTS.StudentId = EXAMS.StudentId
+WHERE result < 3
+GROUP BY FirstName, LastName
+HAVING Count (*) > 2;
+
+б)
+SELECT Group FROM (SELECT FirstName, LastName, Group
+FROM STUDENTS JOIN EXAMS
+ON STUDENTS.StudentId = EXAMS.StudentId
+WHERE result < 3
+GROUP BY FirstName, LastName
+HAVING Count (*) > 2)
+GROUP BY Group
+HAVING COUNT(Group) > 10;
